@@ -5,6 +5,31 @@
     <label for='avatar'>
       <img src='/images/avatar.svg' height='24' />
     </label>
+
     <input id='avatar' name='avatar' type='file' />
+
+    <input type='text' name='name' placeholder='Nombre Completo' />
+    <input type='email' name='email' placeholder='Email' />
+    <input type='password' name='password' placeholder='Password' />
+
+    <label for='provider' >
+      <input type='checkbox' id='provider' name='provider' value='1' />
+      Soy peluquero/a
+    </label>
+
+    <button type='submit'>Crear Cuenta</button>
+
+    <a href='/'>Ya tengo una cuenta</a>
+
   </form>
+
+  <script type='text/javascript'>
+    var avatarInput = document.getElementById('avatar')
+    var img = document.querySelector('label[for=avatar] img')
+
+    avatarInput.onchange = function(e) {
+      img.classList.add('preview')
+      img.src = URL.createObjectURL(e.target.files[0])
+    }
+  </script>
 {% endblock %}
