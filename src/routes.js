@@ -13,6 +13,10 @@ routes.post('/signin', SessionController.store)
 routes.get('/signup', UserController.create)
 routes.post('/signup', upload.single('avatar'), UserController.store)
 
-routes.get('/app/dashboard', (req, res) => res.render('dashboard'))
+routes.get('/app/dashboard', (req, res) => {
+  // buscar como guardar session en redis npm install connect-redis express-session
+  console.log(req.session.user)
+  res.render('dashboard')
+})
 
 module.exports = routes
