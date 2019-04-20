@@ -19,7 +19,7 @@ routes.use((req, res, next) => {
   return next()
 })
 
-routes.get('/files/:files', FileController.show)
+routes.get('/files/:file', FileController.show)
 
 routes.get('/', guestMiddleware, SessionController.create)
 routes.post('/signin', SessionController.store)
