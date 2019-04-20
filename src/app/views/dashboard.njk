@@ -4,17 +4,24 @@
   <div class='content'>
     <strong>Hola, {{ user.name }}</strong>
     <p>Agende escogiendo un profesional abajo:</p>
+
     <ul class='providers'>
       {% for provider in providers %}
-      <li class='provider'>
-        <div>
-          <img src='/files/{{ provider.avatar }}' />
-          <strong>{{ provider.name }}</strong>
-        </div>
-        <a href='/app/appointments/new/{{ provider.id }}'>+</a>
-      </li>
+        <li class='provider'>
+          <div>
+            <img src='/files/{{ provider.avatar }}' />
+            <strong>{{ provider.name }}</strong>
+          </div>
+          <a href='/app/appointments/new/{{ provider.id }}'>+</a>
+        </li>
       {% endfor %}
     </ul>
+
+    {% if (user.provider === true) %}
+
+      <a class='provider-schedule' href='/app/schedule'>Mi Agenda</a>
+
+    {% endif %}
 
     <a href='/app/logout' class='logout'>Salir</a>
   </div>

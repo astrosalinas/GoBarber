@@ -21,7 +21,7 @@ class SessionController {
     }
 
     req.session.user = user
-    return res.redirect('app/dashboard')
+    return res.redirect('/app/dashboard')
   }
 
   destroy (req, res) {
